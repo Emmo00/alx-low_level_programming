@@ -1,5 +1,5 @@
 #include<stdio.h>
 
 int main(void) {
-	printf("This is a C file");
+	puts("This is a C file");
 }
