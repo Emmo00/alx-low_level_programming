@@ -4,7 +4,7 @@
 /**
  * main - Entry point
  *
- * Description: print all letters of the alphabet
+ * Description: print combination of 2 digits
  *
  * Return: Always 0 (Success)
  */
