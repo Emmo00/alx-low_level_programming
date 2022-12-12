@@ -14,7 +14,6 @@ int main(void)
 	char ten;
 	char hundred;
 	char thousand;
-	int i;
 
 	for (thousand = 0; thousand < 10; thousand++)
 	{
