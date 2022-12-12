@@ -10,10 +10,10 @@
  */
 int main(void)
 {
-	char unit;
-	char ten;
-	char hundred;
-	char thousand;
+	int unit;
+	int ten;
+	int hundred;
+	int thousand;
 
 	for (thousand = 0; thousand < 10; thousand++)
 	{
