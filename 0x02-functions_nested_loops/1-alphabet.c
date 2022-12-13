@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * main - entry point
+ * print_alphabet_x10 - writes the alphabet
  *
  * Description: prints the alphabet with the _putchar function in_putchar.c
  *
