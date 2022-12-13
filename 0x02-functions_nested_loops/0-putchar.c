@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-	char* str = "_putchar";
-	
+	char *str = "_putchar";
+
 	while (*str != '\0')
 	{
 		_putchar(*str);
