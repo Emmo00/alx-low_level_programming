@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * main - entry point
  *
@@ -7,7 +8,6 @@
  */
 int main(void)
 {
-	int _putchar(char c);
 	char* str = "_putchar";
 	
 	while (*str != '\0')
