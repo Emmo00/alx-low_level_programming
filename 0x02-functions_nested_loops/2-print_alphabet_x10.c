@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-  print_alphabet_x10 - takes no arguments
+ * print_alphabet_x10 - writes the alphabet 10 times
  *
  * Description: prints the alphabet with the _putchar function in_putchar.c x10
  *
