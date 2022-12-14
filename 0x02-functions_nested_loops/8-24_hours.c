@@ -30,7 +30,7 @@ void jack_bauer(void)
 			_putchar(hour_digit1 + '0');
 			_putchar(hour_digit2 + '0');
 			_putchar(':');
-			_putchar(hour_digit1 + '0');
-			_putchar(hour_digit1 + '0');
+			_putchar(minute_digit1 + '0');
+			_putchar(minute_digit2 + '0');
 		}
 }
