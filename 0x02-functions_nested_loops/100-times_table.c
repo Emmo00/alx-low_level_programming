@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * times_table - prints the times table of n, between 0 and 15
+ * print_times_table - prints the times table of n, between 0 and 15
  * @n: max time table to print
  */
 void print_times_table(int n)
@@ -22,8 +22,4 @@ void print_times_table(int n)
 		}
 		printf("\n");
 	}
-}
-int main(void)
-{
-	print_times_table(3);
 }
