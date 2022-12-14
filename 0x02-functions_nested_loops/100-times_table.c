@@ -13,7 +13,8 @@ void print_times_table(int n)
 		return;
 	for (i = 0; i <= n; i++)
 	{
-		for (j = 0; j <= n; j++)
+		printf("0,");
+		for (j = 1; j <= n; j++)
 		{
 			printf("%4d", i * j);
 			if (j != n)
@@ -21,4 +22,8 @@ void print_times_table(int n)
 		}
 		printf("\n");
 	}
+}
+int main(void)
+{
+	print_times_table(3);
 }
