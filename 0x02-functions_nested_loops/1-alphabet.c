@@ -3,8 +3,6 @@
  * print_alphabet - writes the alphabet
  *
  * Description: prints the alphabet with the _putchar function in_putchar.c
- *
- * Return: Always 0 (Success)
  */
 void print_alphabet(void)
 {
