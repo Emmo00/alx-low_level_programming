@@ -9,16 +9,19 @@
  */
 int main(void)
 {
-	int n;
-	int n_1;
-	int next;
+	long int n;
+	long int n_1;
+	long int next;
+	int i;
 
 	n = 2;
 	n_1 = 1;
-	printf("%d, ", n_1);
-	while (n < 50)
+	printf("%ld, ", n_1);
+	for (i = 0; i < 49; i++)
 	{
-		printf("%d, ", n);
+		printf("%ld", n);
+		if (i != 48)
+			printf(", ");
 		next = n + n_1;
 		n_1 = n;
 		n = next;
