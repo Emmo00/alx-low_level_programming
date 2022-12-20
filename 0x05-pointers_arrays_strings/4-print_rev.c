@@ -7,7 +7,6 @@
 void print_rev(char *s)
 {
 	int i;
-	char br;
 
 	i = 0;
 	br = '\n';
