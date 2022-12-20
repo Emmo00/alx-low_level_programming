@@ -4,7 +4,7 @@
  * @str: character string
  * Return: nothing
  */
-void _puts(char *str)
+void puts_half(char *str)
 {
 	int i, j;
 	char br;
