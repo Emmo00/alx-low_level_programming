@@ -11,7 +11,7 @@ char *_strcpy(char *dest, char *src)
 	size_t len = strlen(src);
 	size_t i;
 
-	dest = malloc((len + 1) * char);
+	dest = malloc((len + 1) * sizeof(char));
 	for (i = 0; i < len; i++)
 		*(dest + i) = *(src + i);
 	*(dest + len) = '\0';
