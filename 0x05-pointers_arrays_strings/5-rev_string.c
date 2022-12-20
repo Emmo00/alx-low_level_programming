@@ -21,6 +21,5 @@ void rev_string(char *s)
 	}
 	for (i--; i >= 0; i--)
 		s[i] = tmp[i];
-	write(1, &br, 1);
 	free(tmp);
 }
