@@ -12,10 +12,16 @@ void puts_half(char *str)
 	i = sizeof(str);
 	if (i % 2 == 0)
 		j = i / 2;
+	else if (i == 0)
+	{
+		write(1, &br, 1);
+		return;
+	}
 	else
 		j = (i - 1) / 2;
 	br = '\n';
-	while (j <= i)
+	j++;
+	while (j < i)
 	{
 		write(1, &str[j], 1);
 		j++;
