@@ -13,7 +13,7 @@ void _puts(char *str)
 	if (i % 2 == 0)
 		j = i / 2;
 	else
-		j = (i - 1) / 2
+		j = (i - 1) / 2;
 	br = '\n';
 	while (j <= i)
 	{
