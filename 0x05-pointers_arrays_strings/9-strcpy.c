@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 /**
  * _strcpy - copies the string pointed to by src to dest , including the '\0'
  * @dest: the destination of the copied string
@@ -8,7 +9,7 @@
 char *_strcpy(char *dest, char *src)
 {
 	size_t len = strlen(src);
-	int i;
+	size_t i;
 
 	dest = malloc((len + 1) * char);
 	for (i = 0; i < len; i++)
