@@ -12,10 +12,8 @@ void print_rev(char *s)
 	i = 0;
 	br = '\n';
 	while (s[i] != '\0')
-	{
 		i++;
-	}
-	for (;i > 0; i--)
+	for (;i > -1; i--)
 		write(1, &s[i], 1);
 	write(1, &br, 1);
 }
