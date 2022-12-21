@@ -1,4 +1,3 @@
-#include<string.h>
 /**
  * _strcat - concatenates two strings. appends src to dest
  * @src: string
@@ -7,12 +6,13 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	int i;
+	int i, j;
 
-	i = strlen(dest);
+	i = 0;
 	j = 0;
-	i++;
-	while (src[j])
+	while (*(dest + i) != '\0')
+		i++;
+	while (*(src + j) != '\0')
 	{
 		*(dest + i) = *(src + j);
 		i++;
