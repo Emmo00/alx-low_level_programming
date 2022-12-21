@@ -1,7 +1,7 @@
 /**
  * _atoi - converts string to an integer
  * @s: input string
- * Return: the result of the conversion or 0 if there is no number in the string
+ * Return: the result of the conversion or 0 if there is no number in string
  */
 int _atoi(char *s)
 {
