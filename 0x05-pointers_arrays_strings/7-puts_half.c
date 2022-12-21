@@ -21,7 +21,6 @@ void puts_half(char *str)
 	else
 		j = (i - 1) / 2;
 	br = '\n';
-	j++;
 	while (j < i)
 	{
 		write(1, &str[j], 1);
