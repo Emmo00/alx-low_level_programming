@@ -1,0 +1,25 @@
+/**
+ * _atoi - converts string to an integer
+ * @s: input string
+ * Return: the result of the conversion or 0 if there is no number in the string
+ */
+int _atoi(char *s)
+{
+	int i, number;
+
+	number = 0;
+	i = 0;
+	while (s[i] != '\0')/* check for numbers */
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+			number = (number * 10) + (s[i] - '0');
+		i++;
+	}
+	i = 0;
+	while (s[i] != '0')/*check for the sign*/
+	{
+		if (s[i] == '-')
+			number = number * (-1);
+	}
+	return (number);
+}
