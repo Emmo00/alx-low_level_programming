@@ -20,6 +20,7 @@ int _atoi(char *s)
 	{
 		if (s[i] == '-')
 			number = number * (-1);
+		i++;
 	}
 	return (number);
 }
