@@ -9,8 +9,7 @@ int _strcmp(char *s1, char *s2)
 {
 	unsigned int c1, c2;
 
-	do
-	{
+	do {
 		c1 = *s1++;
 		c2 = *s2++;
 		if (c1 == '\0')
