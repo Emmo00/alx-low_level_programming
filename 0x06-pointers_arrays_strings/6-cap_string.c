@@ -9,6 +9,8 @@ char *cap_string(char *s)
 	int i, j;
 
 	i = 0;
+	if (s[0] >= 'a' && s[0] <= 'z')
+		s[0] -= 32;
 	while (s[i] != '\0')
 	{
 		j = 0;
