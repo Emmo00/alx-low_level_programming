@@ -11,7 +11,7 @@ char *rot13(char *s)
 	do {
 		if (s[i] >= 'a' && s[i] <= 'z')
 			s[i] = 97 + (((s[i] - 97) + 13) % 26);
-		if (s[i] >= 'A' && s[i] <= 'Z')
+		else if (s[i] >= 'A' && s[i] <= 'Z')
 			s[i] = 65 + (((s[i] - 65) + 13) % 26);
 		i++;
 	} while (s[i] != '\0');
