@@ -1,5 +1,5 @@
 # ALX Low Level Programming
-this folder contains other sub-folders of the project including:
+This folder contains other sub-folders of the project including:
 ### [Hello World](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x00-hello_world)
 ### [Variables, If, Else and While](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x01-variables_if_else_while)
 ### [Functions, Nested loops](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x02-functions_nested_loops)
