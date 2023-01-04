@@ -8,3 +8,4 @@ This folder contains other sub-folders of the project including:
 ### [Pointers, array, strings](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x05-pointers_arrays_strings)
 ### [More Pointers, array and string](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x06-pointers_arrays_strings)
 ### [Even More Pointers, array and string](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x07-pointers_arrays_strings)
+### [Recursion](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x08-recursion)
