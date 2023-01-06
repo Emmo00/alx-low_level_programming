@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
  * main - entry point
  * @argc: number of arguments passed to program
@@ -7,24 +7,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int i;
-
 	(void) argc;
 
-	i = 0;
-	while (argv[0][i])
-		_putchar(argv[0][i++]);
-	_putchar('\n');
+	printf("%s\n", argv[0]);
 	return (0);
-}
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
