@@ -17,8 +17,6 @@ int main(int argc, char *argv[])
 	_putchar('\n');
 	return (0);
 }
-#include <unistd.h>
-
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
