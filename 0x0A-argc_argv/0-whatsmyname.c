@@ -1,4 +1,3 @@
-#include<stdio.h>
 #include "main.h"
 /**
  * main - entry point
@@ -8,7 +7,13 @@
  */
 int main(int argc, char *argv[])
 {
+	int i;
+
 	(void) argc;
-	printf("%s\n", argv[0]);
+
+	i = 0;
+	while (argv[0][i])
+		_putchar(argv[0][i++]);
+	_putchar('\n');
 	return (0);
 }
