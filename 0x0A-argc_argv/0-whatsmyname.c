@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include "main.h"
 /**
  * main - entry point
  * @argc: number of arguments passed to program
