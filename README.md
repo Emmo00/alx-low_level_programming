@@ -11,3 +11,4 @@ This folder contains other sub-folders of the project including:
 #### [Recursion](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x08-recursion)
 #### [Static libraries](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x09-static_libraries)
 #### [Command line Arguments](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x0A-argc_argv)
+#### [Dynamic memory allocation](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x0B-malloc_free)
