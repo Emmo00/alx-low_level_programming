@@ -1,1 +1,1 @@
-Alx project on dynamic memory allocation
+Alx project on dynamic memory allocation.
