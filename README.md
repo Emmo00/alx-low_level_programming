@@ -12,3 +12,7 @@ This folder contains other sub-folders of the project including:
 #### [Static libraries](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x09-static_libraries)
 #### [Command line Arguments](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x0A-argc_argv)
 #### [Dynamic memory allocation](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x0B-malloc_free)
+#### [More Dynamic memory allocation](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x0C-more_malloc_free)
+#### [Preprocessor](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x0D-preprocessor)
+#### [Structures and Typedef](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x0E-structures_typedef)
+#### [Pointers to Functions](https://github.com/Emmo00/alx-low_level_programming/tree/master/0x0F-function_pointers)
