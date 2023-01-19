@@ -1,5 +1,6 @@
 #include "3-calc.h"
 #include<stdio.h>
+#include<stdlib.h>
 /**
  * get_op_func - gets the correct function based on s
  * @s: character of operation
@@ -7,7 +8,7 @@
  * dont
  * match supported operations
  */
-int (*get_op_func(char *s))(int, int)
+int (*get_op_func(char *s))(int a, int b)
 {
 	op_t ops[] = {
 		{"+", op_add},
@@ -19,10 +20,12 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i;
 
-	while (ops[i].op)
+	i = 0;
+    while (ops[i].op)
 	{
-		if (ops[i].op == s)
+		if (*(ops[i].op) == *s)
 			return (ops[i].f);
+        i++;
 	}
 	printf("Error\n");
 	exit(99);

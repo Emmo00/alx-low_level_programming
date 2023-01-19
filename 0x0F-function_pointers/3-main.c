@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include "3-calc.h"
 /**
  * main - entry point
@@ -18,6 +19,7 @@ int main(int ac, char **av)
 	}
 	a = atoi(av[1]);
 	b = atoi(av[3]);
-	get_op_func(av[2][0])(a, b);
+    printf("%d %s %d\n", a, *(av + 2), b);
+	printf("%d\n", get_op_func(*(av + 2))(a, b));
 	return (0);
 }

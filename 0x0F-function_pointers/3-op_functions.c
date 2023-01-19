@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 /**
  * op_add - add two integers
  * @a: integer
@@ -7,6 +8,7 @@
  */
 int op_add(int a, int b)
 {
+    printf("add\n");
 	return (a + b);
 }
 /**
