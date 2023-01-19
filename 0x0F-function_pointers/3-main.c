@@ -19,7 +19,6 @@ int main(int ac, char **av)
 	}
 	a = atoi(av[1]);
 	b = atoi(av[3]);
-    printf("%d %s %d\n", a, *(av + 2), b);
 	printf("%d\n", get_op_func(*(av + 2))(a, b));
 	return (0);
 }
