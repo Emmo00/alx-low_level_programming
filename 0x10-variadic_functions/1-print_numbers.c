@@ -6,7 +6,7 @@
  * @n: number of integers passed to the function
  * Return: nothing
 */
-void print_numbers(const *separator, const unsigned int n, ...)
+void print_numbers(const char *separator, const unsigned int n, ...)
 {
     va_list args;
     unsigned int i;
