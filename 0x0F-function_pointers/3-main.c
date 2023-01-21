@@ -11,6 +11,7 @@
 int main(int ac, char **av)
 {
 	int a, b;
+	int (*func)(int, int);
 
 	if (ac > 4 || ac < 4)
 	{
@@ -19,6 +20,17 @@ int main(int ac, char **av)
 	}
 	a = atoi(av[1]);
 	b = atoi(av[3]);
-	printf("%d\n", get_op_func(*(av + 2))(a, b));
+	if ((*av[2] == '/' || *av[2] == '%') && b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	func = get_op_func(av[2]);
+	if (func == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	printf("%d\n", func(a, b));
 	return (0);
 }
