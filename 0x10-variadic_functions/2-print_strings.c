@@ -3,7 +3,7 @@
 /**
  * print_strings - print strings, followed by a newline
  * @separator: the string to be printed between numbers
- * @n: number of integers passed to the function
+ * @n: number of integers passed to the function.
  * Return: nothing
 */
 void print_strings(const char *separator, const unsigned int n, ...)
