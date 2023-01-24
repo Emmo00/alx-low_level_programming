@@ -8,8 +8,10 @@ void print_all(const char *const format, ...)
 {
 	va_list args;
 	int i = 0, j;
-	char *str, specs = "cifs";
+	char *str;
+	char *specs;
 
+	specs = "cifs";
 	va_start(args, format);
 	while (format[i])
 	{
@@ -39,10 +41,9 @@ void print_all(const char *const format, ...)
 			}
 			printf("%s", str);
 			break;
-		default:
-			break;
 		}
 		i++;
 	}
 	printf("\n");
+	va_end(args);
 }
