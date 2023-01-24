@@ -11,11 +11,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list args;
 	unsigned int i;
 	char *str;
+	char *null;
 
+	null = "";
 	va_start(args, n);
 	if (separator == NULL || n < 1)
 	{
-		*separator = "";
+		separator = null;
 	}
 	for (i = 0; i < n; i++)
 	{
