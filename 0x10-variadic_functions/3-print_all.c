@@ -7,13 +7,10 @@
 void print_all(const char *const format, ...)
 {
 	va_list args;
-	int i, j;
-	char *str;
-	char *specs;
+	int i = 0, j;
+	char *str, specs = "cifs";
 
 	va_start(args, format);
-	i = 0;
-	specs = "cifs";
 	while (format[i])
 	{
 		j = 0;
@@ -23,7 +20,6 @@ void print_all(const char *const format, ...)
 				printf(", ");
 			j++;
 		}
-		
 		switch (format[i])
 		{
 		case 'c':
