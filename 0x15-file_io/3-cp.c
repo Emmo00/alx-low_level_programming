@@ -20,7 +20,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	file_from = av[1];
@@ -28,13 +28,13 @@ int main(int ac, char **av)
 	fdr = open(file_from, O_RDONLY);
 	if (fdr < 0)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't read from file %s", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	fdw = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, RW_RW_R__);
 	if (fdw < 0)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't write to %s", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	buffer = malloc(sizeof(char) * 1024);
@@ -45,12 +45,12 @@ int main(int ac, char **av)
 	free(buffer);
 	if ((close(fdr)) == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", fdr);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdr);
 		exit(100);
 	}
 	if ((close(fdw)) == -1)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", fdw);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdw);
 		exit(100);
 	}
 	return (0);
