@@ -6,6 +6,8 @@
 #include<stdio.h>
 
 #define RW_RW_R__ (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
+
+void check_rw_error(read, write);
 /**
  * main - entry point
  * copies the content of a file to another
@@ -15,7 +17,7 @@
  */
 int main(int ac, char **av)
 {
-	int fdr, fdw, nbuff;
+	int fdr, fdw, nread, nwrite;
 	char *file_from, *file_to, buffer[1024];
 
 	if (ac != 3)
@@ -26,20 +28,12 @@ int main(int ac, char **av)
 	file_from = av[1];
 	file_to = av[2];
 	fdr = open(file_from, O_RDONLY);
-	if (fdr < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
 	fdw = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, RW_RW_R__);
-	if (fdw < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
+	check_rw_error(fdr, fdw, file_from, file_to);
 	do {
-		nbuff = read(fdr, buffer, sizeof(char) * 1024);
-		write(fdw, buffer, sizeof(char) * nbuff);
+		nread = read(fdr, buffer, sizeof(char) * 1024);
+		nwrite = write(fdw, buffer, sizeof(char) * nbuff);
+		chech_rw_error(nread, nwrite, file_from, file_to);
 	} while (nbuff > 0);
 	if ((close(fdr)) == -1)
 	{
@@ -53,3 +47,22 @@ int main(int ac, char **av)
 	}
 	return (0);
 }
+/**
+ * check_rw_error - checks error in Read or Write actions
+ * @read: int returned after read function
+ * @write: int returned after write function
+ * Return: nothing
+ */
+ void check_rw_error(read, write, file_from, file_to)
+ {
+	if (read < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
+	if (write < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		exit(99);
+	}
+ }
