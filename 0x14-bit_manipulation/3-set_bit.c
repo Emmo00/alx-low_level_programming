@@ -9,6 +9,8 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned int ac;
 
+	if (index > 53 || !n)
+		return (-1);
 	ac = 1;
 	ac = ac << index;
 	*n = *n | ac;
