@@ -51,10 +51,12 @@ int main(int ac, char **av)
  * check_rw_error - checks error in Read or Write actions
  * @read: int returned after read function
  * @write: int returned after write function
+ * @file_from: name of input file
+ * @file_to: name of output file
  * Return: nothing
  */
- void check_rw_error(int read, int write, char *file_from, char *file_to)
- {
+void check_rw_error(int read, int write, char *file_from, char *file_to)
+{
 	if (read < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
@@ -65,4 +67,4 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
- }
+}
