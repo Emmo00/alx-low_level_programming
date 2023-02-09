@@ -4,6 +4,7 @@
 #include<unistd.h>
 #include<stdlib.h>
 #include<stdio.h>
+#define RW_RW_R__ (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 /**
  * main - entry point
  * copies the content of a file to another
@@ -29,7 +30,7 @@ int main(int ac, char **av)
 		dprintf(STDOUT_FILENO, "Error: Can't read from file %s", file_from);
 		exit(98);
 	}
-	fdw = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 664);
+	fdw = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, RW_RW_R__);
 	if (fdw < 0)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't write to %s", file_to);
