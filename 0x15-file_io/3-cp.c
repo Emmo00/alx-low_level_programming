@@ -16,7 +16,7 @@
 int main(int ac, char **av)
 {
 	int fdr, fdw, nbuff;
-	char *file_from, *file_to, *buffer;
+	char *file_from, *file_to, buffer[1024];
 
 	if (ac != 3)
 	{
@@ -37,12 +37,10 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	buffer = malloc(sizeof(char) * 1024);
 	do {
 		nbuff = read(fdr, buffer, sizeof(char) * 1024);
 		write(fdw, buffer, sizeof(char) * nbuff);
 	} while (nbuff > 0);
-	free(buffer);
 	if ((close(fdr)) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdr);
