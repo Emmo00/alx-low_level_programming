@@ -7,7 +7,7 @@
 
 #define RW_RW_R__ (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 
-void check_rw_error(read, write);
+void check_rw_error(int read, int write, char *file_from, char *file_to);
 /**
  * main - entry point
  * copies the content of a file to another
@@ -32,9 +32,9 @@ int main(int ac, char **av)
 	check_rw_error(fdr, fdw, file_from, file_to);
 	do {
 		nread = read(fdr, buffer, sizeof(char) * 1024);
-		nwrite = write(fdw, buffer, sizeof(char) * nbuff);
-		chech_rw_error(nread, nwrite, file_from, file_to);
-	} while (nbuff > 0);
+		nwrite = write(fdw, buffer, sizeof(char) * nread);
+		check_rw_error(nread, nwrite, file_from, file_to);
+	} while (nread > 0);
 	if ((close(fdr)) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdr);
@@ -53,7 +53,7 @@ int main(int ac, char **av)
  * @write: int returned after write function
  * Return: nothing
  */
- void check_rw_error(read, write, file_from, file_to)
+ void check_rw_error(int read, int write, char *file_from, char *file_to)
  {
 	if (read < 0)
 	{
