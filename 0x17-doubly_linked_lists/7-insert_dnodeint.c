@@ -5,7 +5,7 @@
  * @h: pointer to pointer to head of ll
  * @idx: index to insert
  * @n: data of node
- * Returns: address to new node or NULL
+ * Return: address to new node or NULL
 */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
