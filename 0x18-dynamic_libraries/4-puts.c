@@ -1,15 +1,20 @@
-#include <stdio.h>
-
+#include<unistd.h>
 /**
- * main - Entry Point
- *
- * Description - prints "Programming is like building a multilingual puzzle"
- *
- * Return: Always 0 (Success)
+ * _puts - prints to standard output
+ * @str: character string
+ * Return: nothing
  */
-
-int main(void)
+void _puts(char *str)
 {
-	puts("\"Programming is like building a multilingual puzzle");
-	return (0);
+	int i;
+	char br;
+
+	i = 0;
+	br = '\n';
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, &br, 1);
 }
