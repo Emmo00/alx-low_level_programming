@@ -11,15 +11,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *node, *tmp;
 	unsigned long int index;
 
-	if (ht == NULL)
-		return (0);
-	if (strcmp("", key) == 0 || key == NULL)
+	if (strcmp("", key) == 0 || key == NULL || ht == NULL)
 	{
 		return (0);
 	}
 	index = key_index((const unsigned char *)key, ht->size);
 	if ((ht->array)[index] == NULL)
 	{
+		node = malloc(sizeof(hash_node_t));
+		if (node == NULL)
+			return (0);
+		node->key = strdup(key);
+		node->value = strdup(value);
+		node->next = NULL;
 		(ht->array)[index] = node;
 	} else
 	{
@@ -35,12 +39,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				break;
 			tmp = tmp->next;
 		}
-node = malloc(sizeof(hash_node_t));
-	if (node == NULL)
-		return (0);
-	node->key = strdup(key);
-	node->value = strdup(value);
-	node->next = NULL;
+		node = malloc(sizeof(hash_node_t));
+		if (node == NULL)
+			return (0);
+		node->key = strdup(key);
+		node->value = strdup(value);
+		node->next = NULL;
 		tmp->next = node;
 	}
 	return (1);
