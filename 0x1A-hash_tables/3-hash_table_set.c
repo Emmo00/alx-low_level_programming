@@ -11,13 +11,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *node, *tmp;
 	unsigned long int index;
 
-if (ht == NULL)
-return 0;
+	if (ht == NULL)
+		return (0);
 	if (strcmp("", key) == 0 || key == NULL)
 	{
 		return (0);
 	}
-node = malloc(sizeof(hash_node_t));
+	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
 		return (0);
 	node->key = strdup(key);
