@@ -10,10 +10,10 @@ void free_hash_col(hash_node_t *col)
 		return;
 	free_hash_col(col->next);
 	if (col->key != NULL)
-                free(col->key);
-        if (col->value != NULL)
-                free(col->value);
-        free(col);
+		free(col->key);
+	if (col->value != NULL)
+		free(col->value);
+	free(col);
 }
 /**
  * hash_table_delete - deletes a hash table.
