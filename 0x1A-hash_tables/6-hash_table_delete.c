@@ -1,21 +1,6 @@
 #include "hash_tables.h"
 /**
- * free_hash_node - free hash table node
- * @node: node to be freed
- * Return: nothing
- */
-void free_hash_node(hash_node_t *node)
-{
-	if (node == NULL)
-		return;
-	if (node->key != NULL)
-		free(node->key);
-	if (node->value != NULL)
-		free(node->value);
-	free(node);
-}
-/**
- * free_hash_col - free hash col recur
+ * free_hash_col - free hash column recur
  * @col: pointer to head of linked list
  * Return: nothing
  */
@@ -23,11 +8,12 @@ void free_hash_col(hash_node_t *col)
 {
 	if (col == NULL)
 		return;
-	if (col->next != NULL)
-		free_hash_col(col->next);
-	else
-		return;
-	free_hash_node(col);
+	free_hash_col(col->next);
+	if (col->key != NULL)
+                free(col->key);
+        if (col->value != NULL)
+                free(col->value);
+        free(col);
 }
 /**
  * hash_table_delete - deletes a hash table.
