@@ -109,7 +109,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 	if (ht->array[index] == NULL)
 	{
-		node = create_shash_node(ht, key, value);
+		node = create_shash_node(key, value);
 		if (node == NULL)
 			return (0);
 		ht->array[index] = node;
