@@ -170,7 +170,7 @@ void print_node_key_value(shash_node_t *node)
 	print_node_key_value(node->next);
 }
 /**
- * shash_table_print - prints a hash table
+ * shash_table_print - prints a hash table in sorted order.
  * @ht: pointer to hash table
  * Return: nothing
  */
@@ -194,16 +194,62 @@ void shash_table_print(const shash_table_t *ht)
 		}
 		f++;
 		printf("'%s': '%s'", node->key, node->value);
-		node = node->next;
+		node = node->snext;
 	}
 	printf("}\n");
 }
 /**
- * shash_table_print - prints a hash table
+ * shash_table_print_rev - prints a hash table in reverse sorted order
  * @ht: pointer to hash table
  * Return: nothing
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	//
+	unsigned long int i, f;
+	shash_node_t *node;
+
+	if (ht == NULL || ht->stail == NULL)
+	{
+		return;
+	}
+	printf("{");
+	f = 0;
+	node = ht->stail;
+	while (node != NULL)
+	{
+		if (f != 0)
+		{
+			printf(", ");
+		}
+		f++;
+		printf("'%s': '%s'", node->key, node->value);
+		node = node->sprev;
+	}
+	printf("}\n");
+}
+/**
+ * shash_table_delete - deletes a shash_table_t hash table
+ * @ht: pointer to hast table
+ * Return: nothing
+*/
+void shash_table_delete(shash_table_t *ht)
+{
+	unsigned long int i;
+	shash_node_t *tmp;
+
+	tmp = ht->shead;
+	for (i = 0; i < ht->size; i++)
+	{
+		free(tmp->key);
+		free(tmp->value);
+		if (tmp->snext == NULL)
+		{
+			free(tmp);
+			break;
+		}
+		tmp = tmp->snext;
+		free(tmp->sprev);
+	}
+	free(ht->array);
+	free(ht);
 }
