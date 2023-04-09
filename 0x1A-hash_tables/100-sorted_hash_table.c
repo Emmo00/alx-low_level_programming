@@ -36,7 +36,7 @@ shash_table_t *shash_table_create(unsigned long int size)
  * @value: value
  * Return: pointer to new shash node
  */
-shash_node_t *create_shash_node(shash_table_t *ht, const char *key, const char *value)
+shash_node_t *create_shash_node(const char *key, const char *value)
 {
 	shash_node_t *node;
 
@@ -133,7 +133,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		node->next = ht->array[index];
 		ht->array[index] = node;
 	}
-	insert_node_sorted(ht->shead, node);
+	insert_node_sorted(ht, node);
 	return (1);
 }
 /**
@@ -176,7 +176,7 @@ void print_node_key_value(shash_node_t *node)
  */
 void shash_table_print(const shash_table_t *ht)
 {
-	unsigned long int i, f;
+	unsigned long int f;
 	shash_node_t *node;
 
 	if (ht == NULL || ht->shead == NULL)
@@ -205,7 +205,7 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	unsigned long int i, f;
+	unsigned long int f;
 	shash_node_t *node;
 
 	if (ht == NULL || ht->stail == NULL)
