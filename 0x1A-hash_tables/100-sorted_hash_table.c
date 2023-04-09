@@ -63,6 +63,7 @@ void insert_node_sorted(shash_table_t *ht, shash_node_t *node)
 	if (ht->shead == NULL)
 	{
 		ht->shead = node;
+		ht->stail = node;
 	} else
 	{
 		tmp = ht->shead;
@@ -70,8 +71,11 @@ void insert_node_sorted(shash_table_t *ht, shash_node_t *node)
 		{
 			if (strcmp(tmp->key, node->key) > 0)
 			{
-				node->next = tmp;
-				ht->shead = node;
+				node->sprev = tmp->sprev;
+				node->snext = tmp;
+				if (tmp->sprev != NULL)
+					tmp->sprev->snext = node;
+				tmp->sprev = node;
 				return;
 			}
 			if (tmp != NULL)
@@ -81,11 +85,11 @@ void insert_node_sorted(shash_table_t *ht, shash_node_t *node)
 		} while (strcmp(tmp->key, node->key) < 0);
 		node->sprev = tmp;
 		node->snext = tmp->snext;
-		if (tmp != NULL)
-		{
-			tmp->snext = node;
-			node->snext = tmp->snext;
-		}
+		if (tmp->snext != NULL)
+			tmp->snext->sprev = node;
+		else
+			ht->stail = node;
+		tmp->snext = node;
 	}
 }
 /**
@@ -131,4 +135,75 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	insert_node_sorted(ht->shead, node);
 	return (1);
+}
+/**
+ * shash_table_get - retrieves a value associated with a key.
+ * @ht: pointer to hash table
+ * @key: key
+ * Return: the value associated with the element,
+ * or NULL if key couldn’t be found
+ */
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	unsigned long int index;
+	shash_node_t *node;
+
+	if (ht == NULL)
+		return (NULL);
+	index = key_index((const unsigned char *)key, ht->size);
+	node = (ht->array)[index];
+	while (node != NULL)
+	{
+		if (strcmp(key, node->key) == 0)
+		{
+			return (node->value);
+		}
+		node = node->next;
+	}
+	return (NULL);
+}
+void print_node_key_value(shash_node_t *node)
+{
+	if (node == NULL)
+		return;
+	printf("'%s': '%s'", node->key, node->value);
+	print_node_key_value(node->next);
+}
+/**
+ * shash_table_print - prints a hash table
+ * @ht: pointer to hash table
+ * Return: nothing
+ */
+void shash_table_print(const shash_table_t *ht)
+{
+	unsigned long int i, f;
+	shash_node_t *node;
+
+	if (ht == NULL || ht->shead == NULL)
+	{
+		return;
+	}
+	printf("{");
+	f = 0;
+	node = ht->shead;
+	while (node != NULL)
+	{
+		if (f != 0)
+		{
+			printf(", ");
+		}
+		f++;
+		printf("'%s': '%s'", node->key, node->value);
+		node = node->next;
+	}
+	printf("}\n");
+}
+/**
+ * shash_table_print - prints a hash table
+ * @ht: pointer to hash table
+ * Return: nothing
+ */
+void shash_table_print_rev(const shash_table_t *ht)
+{
+	//
 }
