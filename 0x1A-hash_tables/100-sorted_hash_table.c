@@ -45,7 +45,6 @@ shash_node_t *create_shash_node(shash_table_t *ht, const char *key, const char *
 		return (NULL);
 	node->key = strdup(key);
 	node->value = strdup(value);
-	// TODO: write sorting logic
 	return (node);
 }
 /**
@@ -57,25 +56,23 @@ shash_node_t *create_shash_node(shash_table_t *ht, const char *key, const char *
 void insert_node_sorted(shash_node_t *head, shash_node_t *node)
 {
 	shash_node_t *tmp;
-	int pos, tpos;
 
 	if (head == NULL)
 	{
 		head = node;
 	} else
 	{
-		pos = -26;
 		tmp = head;
-		tpos = strcmp(tmp->key, node->key);
-		if (tpos < 0)
+		while (strcmp(tmp->key, node->key) <= 0)
 		{
-			//TODO stuff
+			if (tmp->snext != NULL)
+				tmp = tmp->snext;
+			else
+				break;
 		}
-		while (tmp != NULL)
-		{
-			
-			tmp = tmp->snext;
-		}
+		node->snext = tmp->snext;
+		tmp->snext = node;
+		node->sprev = tmp;
 	}
 }
 /**
