@@ -21,11 +21,11 @@ void hash_table_delete(hash_table_t *ht)
 		node = (ht->array)[i];
 		while (node != NULL)
 		{
-			free(node->key);
-			free(node->value);
-			tmp = node->next;
-			free(node);
-			node = tmp;
+			tmp = node;
+			free(tmp->key);
+			free(tmp->value);
+			free(tmp);
+			node = node->next;
 		}
 	}
 	free(ht->array);
