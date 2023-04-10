@@ -31,7 +31,6 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 /**
  * create_shash_node - create node for sorted hash table
- * @ht: pointer to hash table
  * @key: key
  * @value: value
  * Return: pointer to new shash node
@@ -52,7 +51,7 @@ shash_node_t *create_shash_node(const char *key, const char *value)
 }
 /**
  * insert_node_sorted - inserts the new node in the sorted ll
- * @head: pointer to head of sorted hash table nodes
+ * @ht: pointer to sorted hash table
  * @node: node to insert
  * Return: nothing
 */
@@ -67,7 +66,7 @@ void insert_node_sorted(shash_table_t *ht, shash_node_t *node)
 	} else
 	{
 		tmp = ht->shead;
-		while (tmp != NULL && strcmp(tmp->key , node->key) < 0)
+		while (tmp != NULL && strcmp(tmp->key, node->key) < 0)
 			tmp = tmp->next;
 		if (tmp == NULL)
 		{
@@ -99,7 +98,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	shash_node_t *node, *tmp;
 	unsigned long int index;
 
-	if(strcmp("", key) == 0 || key == NULL || ht == NULL)
+	if (strcmp("", key) == 0 || key == NULL || ht == NULL)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	if (ht->array[index] == NULL)
@@ -157,13 +156,6 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 		node = node->next;
 	}
 	return (NULL);
-}
-void print_node_key_value(shash_node_t *node)
-{
-	if (node == NULL)
-		return;
-	printf("'%s': '%s'", node->key, node->value);
-	print_node_key_value(node->next);
 }
 /**
  * shash_table_print - prints a hash table in sorted order.
