@@ -67,29 +67,24 @@ void insert_node_sorted(shash_table_t *ht, shash_node_t *node)
 	} else
 	{
 		tmp = ht->shead;
-		do
+		while (tmp != NULL && strcmp(tmp->key , node->key) < 0)
+			tmp = tmp->next;
+		if (tmp == NULL)
 		{
-			if (strcmp(tmp->key, node->key) > 0)
-			{
-				node->sprev = tmp->sprev;
-				node->snext = tmp;
-				if (tmp->sprev != NULL)
-					tmp->sprev->snext = node;
-				tmp->sprev = node;
-				return;
-			}
-			if (tmp != NULL)
-				tmp = tmp->snext;
-			else
-				break;
-		} while (strcmp(tmp->key, node->key) < 0);
-		node->sprev = tmp;
-		node->snext = tmp->snext;
-		if (tmp->snext != NULL)
-			tmp->snext->sprev = node;
-		else
+			node->sprev = ht->stail;
+			node->snext = NULL;
+			ht->stail->snext = node;
 			ht->stail = node;
-		tmp->snext = node;
+		} else
+		{
+			node->sprev = tmp->sprev;
+			node->snext = tmp;
+			if (tmp->sprev != NULL)
+				tmp->sprev->snext = node;
+			else
+				ht->shead = node;
+			tmp->sprev = node;
+		}
 	}
 }
 /**
@@ -120,6 +115,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		{
 			if (strcmp(key, tmp->key) == 0)
 			{
+				free(tmp->value);
 				tmp->value = strdup(value);
 				return (1);
 			}
