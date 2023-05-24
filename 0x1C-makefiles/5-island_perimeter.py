@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-
-
 """5-island_perimeter defines
 island_perimeter function
 """
+
+
 def island_perimeter(grid):
     """island_perimeter
     finds the perimeter of a grid representing
