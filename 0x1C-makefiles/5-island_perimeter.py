@@ -9,6 +9,8 @@ def island_perimeter(grid):
     returns the perimeter
     """
     perimeter = 0
+    if grid == None:
+        return perimeter
     for i in range(len(grid)):
         land = False
         for j in range(len(grid[i])):
