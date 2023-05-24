@@ -29,5 +29,4 @@ def island_perimeter(grid):
             if grid[i][j] == 0 and land:
                 perimeter += 1
                 land = False
-            print(perimeter)
     return perimeter
