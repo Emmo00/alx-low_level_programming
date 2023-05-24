@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 """5-island_perimeter defines
 island_perimeter function
 """
@@ -9,7 +11,7 @@ def island_perimeter(grid):
     returns the perimeter
     """
     perimeter = 0
-    if grid == None:
+    if grid is None:
         return perimeter
     for i in range(len(grid)):
         land = False
