@@ -7,7 +7,7 @@ CFLAGS=-Wall -Werror -Wextra -pedantic
 all: $(OBJ)
 	$(CC) $^ -o $(NAME) ${CFLAGS}
 
-.PHONY: fclean clean oclean
+.PHONY: all fclean clean oclean
 
 fclean: clean oclean
 
