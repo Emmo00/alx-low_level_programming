@@ -4,7 +4,7 @@ SRC=main.c school.c
 OBJ=$(SRC:.c=.o)
 CFLAGS=-Wall -Werror -Wextra -pedantic
 
-all: $(SRC)
+all: $(OBJ)
 	$(CC) $^ -o $(NAME) ${CFLAGS}
 
 .PHONY: fclean clean oclean
