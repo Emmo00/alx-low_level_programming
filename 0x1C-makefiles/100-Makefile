@@ -4,9 +4,7 @@ SRC=main.c school.c
 OBJ=$(SRC:.c=.o)
 CFLAGS=-Wall -Werror -Wextra -pedantic
 
-all: $(NAME)
-
-$(NAME): $(OBJ)
+all: $(OBJ)
 ifeq ($(wildcard m.h),)
 	$(CC) $^ -o $(NAME) ${CFLAGS}
 endif
